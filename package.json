@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "qeeq react svg icons",
   "main": "index.js",
+  "bin": {
+    "icon-bin": "bin/icon-bin.js"
+  },
   "scripts": {
     "g": "npm run generate",
-    "generate": "cross-env NODE_ENV=production gulp --require ts-node/register/transpile-only"
+    "generate": "cross-env NODE_ENV=production gulp --require ts-node/register/transpile-only",
+    "test": "ts-node ./bin/icon-bin g-react-icons --config iconfont.config.js --baseDir ./src"
   },
   "keywords": [
     "react",
@@ -24,15 +28,19 @@
     "@types/lodash.camelcase": "^4.3.6",
     "@types/lodash.template": "^4.5.0",
     "@types/lodash.upperfirst": "^4.3.6",
+    "@types/node": "^16.6.1",
     "@types/ramda": "^0.27.44",
     "@types/react": "^17.0.17",
     "@types/rgrove__parse-xml": "^1.1.2",
     "@types/svgo": "^2.3.1",
     "@types/through2": "^2.0.36",
+    "@types/yargs": "^17.0.2",
+    "chalk": "^4.1.2",
     "classnames": "^2.3.1",
     "cross-env": "^7.0.3",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^2.0.0",
     "lodash.camelcase": "^4.3.0",
@@ -44,6 +52,8 @@
     "svgo": "^2.3.1",
     "through2": "^4.0.2",
     "ts-node": "^10.2.0",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "webpack-iconfont-plugin-nodejs": "^1.0.19",
+    "yargs": "^17.1.0"
   }
 }
