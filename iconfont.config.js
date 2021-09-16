@@ -1,5 +1,3 @@
-// const path = require('path');
-// const globalPath = path.join(__dirname, '../src/global');
 
 module.exports = {
     // baseDir: "",
