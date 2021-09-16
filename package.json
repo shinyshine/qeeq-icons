@@ -1,6 +1,6 @@
 {
   "name": "icon-bin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "transform svg files to react components, using bin command",
   "main": "index.js",
   "bin": {
@@ -25,11 +25,12 @@
   },
   "author": "lpp_kuku",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
+    "typescript": "^4.3.5",
+    "@types/gulp": "^4.0.9",
     "@rgrove/parse-xml": "^3.0.0",
     "@types/classnames": "^2.3.1",
     "@types/glob-stream": "^6.1.1",
-    "@types/gulp": "^4.0.9",
     "@types/gulp-concat": "0.0.33",
     "@types/gulp-rename": "^2.0.1",
     "@types/lodash.camelcase": "^4.3.6",
@@ -42,13 +43,15 @@
     "@types/svgo": "^2.3.1",
     "@types/through2": "^2.0.36",
     "@types/yargs": "^17.0.2",
+    "gulp-cli": "^2.3.0"
+  },
+  "dependencies": {
     "chalk": "^4.1.2",
     "classnames": "^2.3.1",
     "copyfiles": "^2.4.1",
     "cross-env": "^7.0.3",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "gulp-cli": "^2.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^2.0.0",
     "lodash.camelcase": "^4.3.0",
@@ -60,7 +63,6 @@
     "svgo": "^2.3.1",
     "through2": "^4.0.2",
     "ts-node": "^10.2.0",
-    "typescript": "^4.3.5",
     "webpack-iconfont-plugin-nodejs": "^1.0.19",
     "yargs": "^17.1.0"
   }
