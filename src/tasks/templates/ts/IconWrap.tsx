@@ -1,6 +1,6 @@
 import * as React from 'react';
 import cass from 'classnames';
-import { generate } from './generate';
+import { generate, SvgRootProps } from './generate';
 import type { IconDefinition, AbstractNode } from './types';
 import './style.css';
 
@@ -36,7 +36,7 @@ const IconWrap = React.forwardRef<HTMLSpanElement, QeeqIconInnerProps>((props, r
             onClick={onClick}
             className={mergedClass}
         >
-            {generate(icon.icon as AbstractNode, icon.name)}
+            {generate(icon.icon as AbstractNode, icon.name, SvgRootProps)}
         </span>
     )
 }) as IconComponent<QeeqIconInnerProps>

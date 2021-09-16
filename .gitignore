@@ -4,3 +4,4 @@ global
 .vscode
 doc
 example
+.DS_Store

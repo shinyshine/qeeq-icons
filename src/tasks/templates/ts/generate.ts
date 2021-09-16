@@ -1,8 +1,16 @@
 import * as React from 'react';
-import { AbstractNode, IconDefinition } from './types';
+import { AbstractNode } from './types';
 
 export interface Attrs {
   [key: string]: string;
+}
+
+export const SvgRootProps = {
+  width: '1em',
+  height: '1em',
+  fill: 'currentColor',
+  'aria-hidden': 'true',
+  focusable: 'false'
 }
 
 export function normalizeAttrs(attrs: Attrs = {}): Attrs {
