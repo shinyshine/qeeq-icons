@@ -1,7 +1,7 @@
 {
-  "name": "qeeq-icons",
+  "name": "icon-bin",
   "version": "1.0.0",
-  "description": "qeeq react svg icons",
+  "description": "transform svg files to react components, using bin command",
   "main": "index.js",
   "bin": {
     "icon-bin": "bin/icon-bin.js"
@@ -14,10 +14,15 @@
     "test": "ts-node ./bin/icon-bin g-react-icons --config iconfont.config.js --baseDir ./global"
   },
   "keywords": [
+    "typescript",
     "react",
     "svg",
     "icons"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinyshine/qeeq-icons.git"
+  },
   "author": "lpp_kuku",
   "license": "ISC",
   "dependencies": {

@@ -1,3 +1,0 @@
-#!/bin/bash
-
-./node_modules/.bin/ts-node ./bin/icon-bin g-react-icons --config iconfont.config.js --baseDir ./global
