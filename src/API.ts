@@ -25,12 +25,10 @@ class IconApi {
             this.resolveBaseDir(baseDir);
         }
 
-
         if(config) {
             this.readConfigFile(config);
         }
 
-        
     }
 
     resolveBaseDir(baseDir: string) {
@@ -64,13 +62,15 @@ class IconApi {
             path.join(process.cwd(), configPath)
         ]
 
-        console.log(filePaths)
+        console.log(chalk.blue('尝试查找配置文件'), filePaths)
 
         for(const filePath of filePaths) {
             if(fs.existsSync(filePath)) {
                 return filePath;
             }
         }
+
+        console.log(chalk.red('配置文件不存在'))
 
         return '';
     }
@@ -90,22 +90,22 @@ class IconApi {
     gFontsRunner() {
         const fontsConfig = this.config.fonts;
         if(fontsConfig) {
+            console.log('g-fonts配置读取如下：', fontsConfig)
             const isValid = validate({
                 svgs: "string",
             }, fontsConfig)
 
-            console.log('isValid', isValid)
-
             if(!isValid) {
-        
+                console.log(chalk.red('必须指定源文件地址：svgs'))
                 return;
             }
-            // fontsConfig.svgs = this.resolvePath(fontsConfig.svgs); 
 
-            // 根据baseDir来resolve输出位置
-            this.resolvePaths(fontsConfig, ['fontsOutput', 'cssOutput', 'previewPath'])
+            // resolve path with baseDir
+            this.resolvePaths(fontsConfig, ['svgs', 'fontsOutput', 'cssOutput', 'previewPath'])
 
             generateFonts(fontsConfig)
+        } else {
+            console.log(chalk.red('no config for g-fonts'))
         }
         
     }

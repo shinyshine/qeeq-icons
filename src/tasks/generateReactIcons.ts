@@ -68,13 +68,13 @@ export const generateEntry = ({
 export interface GenerateReactIconsOptions {
     svgs: string; // svg源文件glob
     svgsArray: string[]; // 源文件glob数组
-    typescript?: boolean; // 是否生成tsx icons？
+    isTsx?: boolean; // 是否生成tsx icons？
     output?: string; // 支持相对路径和绝对路径，默认值为cwd/icons
     template?: string; // todo: 自定义生成的jsx|tsx模板
 }
 
 export default function generateReactIcons(options: GenerateReactIconsOptions) {
-    const { typescript, output = 'icons', svgsArray } = options;
+    const { isTsx, output = 'icons', svgsArray } = options;
     // resolve output path
     const outputPath = resolve(output);
     const componentsPath = resolve(outputPath, 'components')
@@ -86,16 +86,16 @@ export default function generateReactIcons(options: GenerateReactIconsOptions) {
             promisfy(generateReactIcons$1({
                 from: svgsArray,
                 toDir: componentsPath,
-                extname: typescript ? '.tsx' : '.jsx',
+                extname: isTsx ? '.tsx' : '.jsx',
                 template: readFileSync(
-                    join(__dirname, `./templates/${typescript ? 'ts/icon.tsx.ejs' : 'js/icon.jsx.ejs'}`),
+                    join(__dirname, `./templates/${isTsx ? 'ts/icon.tsx.ejs' : 'js/icon.jsx.ejs'}`),
                     'utf-8'
                 )
             })),
             promisfy(copy({
                 fromDir: [
-                    join(__dirname, `./templates/${typescript ? 'ts/*.ts' : 'js/*.js'}`), 
-                    join(__dirname, `./templates/${typescript ? 'ts/*.tsx' : 'js/*.jsx'}`),
+                    join(__dirname, `./templates/${isTsx ? 'ts/*.ts' : 'js/*.js'}`), 
+                    join(__dirname, `./templates/${isTsx ? 'ts/*.tsx' : 'js/*.jsx'}`),
                     join(__dirname, './templates/style.css'),
                 ],
                 toDir: outputPath
@@ -104,7 +104,7 @@ export default function generateReactIcons(options: GenerateReactIconsOptions) {
         promisfy(generateEntry({
             from: [`${componentsPath}/*.tsx`, `${componentsPath}/*.jsx`],
             toDir: outputPath,
-            entryName: typescript ? 'index.ts' : 'index.jsx'
+            entryName: isTsx ? 'index.ts' : 'index.jsx'
         }))
     )
 

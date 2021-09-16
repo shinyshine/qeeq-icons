@@ -6,3 +6,5 @@ iconfont.config.js
 package-lock.json
 tsconfig.json
 src
+.vscode
+example

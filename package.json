@@ -11,7 +11,7 @@
     "copy": "copyfiles -u 1 src/tasks/templates/* src/tasks/templates/**/* lib",
     "g": "npm run generate",
     "generate": "cross-env NODE_ENV=production gulp --require ts-node/register/transpile-only",
-    "test": "ts-node ./bin/icon-bin g-react-icons --config iconfont.config.js --baseDir ./global"
+    "test": "node ./bin/icon-bin g-react-icons --config icon.config.js --baseDir ./example"
   },
   "keywords": [
     "typescript",
@@ -28,7 +28,6 @@
   "devDependencies": {
     "typescript": "^4.3.5",
     "@types/gulp": "^4.0.9",
-    "@rgrove/parse-xml": "^3.0.0",
     "@types/classnames": "^2.3.1",
     "@types/glob-stream": "^6.1.1",
     "@types/gulp-concat": "0.0.33",
@@ -46,6 +45,7 @@
     "gulp-cli": "^2.3.0"
   },
   "dependencies": {
+    "@rgrove/parse-xml": "^3.0.0",
     "chalk": "^4.1.2",
     "classnames": "^2.3.1",
     "copyfiles": "^2.4.1",
